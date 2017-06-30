@@ -9,6 +9,17 @@ This is a small program to help you to distribute the days of CET to past 3 mont
 
 # How to run
 
+## Run with GCC:
+
+you can run with gcc :
+```
+gcc -o main ./main.c; ./main [Number of Days in CET]
+```
+
+OR
+
+## Run with Docker without GCC
+
 You have to install docker : 
 
 For MacOS   : https://docs.docker.com/docker-for-mac/install/
