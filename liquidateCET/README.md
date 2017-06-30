@@ -35,7 +35,7 @@ You have to install docker :
 * For Ubuntu  : [https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)
 * For CentOS  : [https://docs.docker.com/engine/installation/linux/docker-ce/centos/](https://docs.docker.com/engine/installation/linux/docker-ce/centos/)
 
-Run command with the number of days in your CET (Don't forget double quotes in the end) : 
+Run command with the number of days in your CET (__Don't forget double quotes in the end__) : 
 ```
 docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 bash -c "gcc -o main ./main.c; ./main [Number of Days in CET]"
 ```
