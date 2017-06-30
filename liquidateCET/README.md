@@ -2,7 +2,7 @@
 
 The rules to liquidate the days in CET bases on the average of your last 3 month salaries.
 
-This is a small program to help you to distribute the days of CET to past 3 month in order to have the best appreciate ratio.
+This program helps you to distribute the days of CET to past 3 month in order to have the best appreciate ratio.
 
  
 
@@ -24,7 +24,7 @@ Starting to processing on 26 days
 7	|	6	|	6	|	7	|	1.842133
 ```
 
-OR
+### OR
 
 ## Run with Docker without GCC
 
