@@ -16,6 +16,14 @@ you can run with gcc :
 gcc -o main ./main.c; ./main [Number of Days in CET]
 ```
 
+For example : 
+```
+$ gcc -o main ./main.c; ./main 26
+Starting to processing on 26 days
+1st Mon	|	2nd Mon	|	3rd Mon	|	4th Mon	|	Ratio
+7	|	6	|	6	|	7	|	1.842133
+```
+
 OR
 
 ## Run with Docker without GCC
