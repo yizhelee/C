@@ -81,7 +81,7 @@ int main(int argc, char **argv){
     calculate(atoi(argv[1]), 4);
   } else 
   if (argc >= 3) {
-    printf("Starting to processing on %s days for a period of 3 month\n", argv[1], 3);
+    printf("Starting to processing on %s days for a period of %s month\n", argv[1], argv[2]);
     calculate(atoi(argv[1]), atoi(argv[2])==3?3:4);
   } else {
     printf("Please input the number of days in your CET as 2nd argument !!!\n");
