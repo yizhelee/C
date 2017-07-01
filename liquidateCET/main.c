@@ -95,7 +95,5 @@ int main(int argc, char **argv){
   } else {
     printf("Please input the number of days in your CET as 2nd argument !!!\n");
   }
-
-
   return 0;
 }
