@@ -2,9 +2,9 @@
 
 The rules to liquidate the days in CET bases on the average of your last 3 month salaries.
 
-This program helps you to distribute the days of CET to past 3 month in order to have the best appreciate ratio.
+This program helps you to understand how to distribute the days of CET to past 3 month and the 4th month in order to have the best ratio.
 
- 
+For some purpose, the progam allows you to calculate the ratio within a period of month less than 3 month as the second input argument.
 
 
 # How to run
@@ -13,16 +13,25 @@ This program helps you to distribute the days of CET to past 3 month in order to
 
 you can run with gcc :
 ```
-gcc -o main ./main.c; ./main [Number of Days in CET]
+gcc -o main ./main.c; ./main Number_of_Days_in_CET Number_of_Month_as_Duration
 ```
 
-For example : 
+For example :
+__For a period of 4 month :__
 ```
-$ gcc -o main ./main.c; ./main 26
-Starting to processing on 26 days
+$ gcc -o main ./main.c; ./main 26 4
+Starting to processing on 26 days for a period of 4 month
 1st Mon	|	2nd Mon	|	3rd Mon	|	4th Mon	|	Ratio
 7	|	6	|	6	|	7	|	1.842133
 ```
+__For a period of 3 month :__
+```
+$ gcc -o main ./main.c; ./main 26 3
+Starting to processing on 26 days for a period of 3 month
+1st Mon	|	2nd Mon	|	3rd Mon	|	4th Mon	|	Ratio
+11	|	5	|	10	|	0	|	1.495567
+```
+
 
 ### OR
 
@@ -37,14 +46,22 @@ You have to install docker :
 
 Run command with the number of days in your CET (__Don't forget double quotes in the end__) : 
 ```
-docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 bash -c "gcc -o main ./main.c; ./main [Number of Days in CET]"
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 bash -c "gcc -o main ./main.c; ./main Number_of_Days_in_CET Number_of_Month_as_Duration"
 ```
 
 For example : 
+__For a period of 4 month :__
 ```
-$ docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 bash -c "gcc -o main ./main.c; ./main 26 " 
-Starting to processing on 26 days
+$ docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 bash -c "gcc -o main ./main.c; ./main 26 4" 
+Starting to processing on 26 days for a period of 4 month
 1st Mon	|	2nd Mon	|	3rd Mon	|	4th Mon	|	Ratio
 7	|	6	|	6	|	7	|	1.842133
+```
+__For a period of 3 month :__
+```
+$ docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 bash -c "gcc -o main ./main.c; ./main 26 3" 
+Starting to processing on 26 days for a period of 3 month
+1st Mon	|	2nd Mon	|	3rd Mon	|	4th Mon	|	Ratio
+11	|	5	|	10	|	0	|	1.495567
 ```
 
