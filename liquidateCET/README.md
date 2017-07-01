@@ -4,7 +4,7 @@ The rules to liquidate the days in CET bases on the average of your last 3 month
 
 This program helps you to understand how to distribute the days of CET to past 3 month and the 4th month in order to have the best ratio.
 
-For some purpose, the progam allows you to calculate the ratio within a period of month less than 3 month as the second input argument.
+For some purpose, the progam allows you to calculate the ratio within a period less than 3 month in putting the second input argument.
 
 
 # How to run
