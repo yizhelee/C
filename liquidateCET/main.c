@@ -10,6 +10,7 @@ const int BASE=10000;
 const int MIN=12992;
 const int DIFF=(15593-12992);
 
+int MAX=99999999;
 void display(int x) {
   int i = 0;
   int nbr = 100 * (x-MIN)/DIFF;
@@ -22,26 +23,33 @@ void display(int x) {
 
 // Best result store 
 static int result[6];
+static int min[6];
 
 int monthlyincome(int n1, int n2, int n3, int days) {
   return days?BASE + ((n1 + n2 + n3) * days/(3*WORKING_DAY_NBR)):0;
 }
 
-void evaluate(int n1, int n2, int n3, int n4, int a, int b, int c, int cet) {
+void evaluate(int n1, int n2, int n3, int n4, int a, int b, int c, int cet, int duration) {
   int tmp = n1 + n2 + n3 + n4;
-  int nbr = a?1:0;
-  nbr += b?1:0;
-  nbr += c?1:0;
-  //printf("%d\t|\t%d\t|\t%d\t|\t%d\t|\t%.6f\n", result[0], result[1], result[2], result[3], ((float) result[4])/(BASE * result[5]));
   if (tmp  >= result[4]) {
     result[0] = a;
     result[1] = b;
     result[2] = c;
     result[3] = (cet-a-b-c);
     result[4] = tmp;
-    result[5] = nbr;
+    result[5] = duration;
     //printf("%d\t|\t%d\t|\t%d\t|\t%d\t|\t%.6f\n", result[0], result[1], result[2], result[3], ((float) result[4])/(BASE * result[5]));
   }
+  if (tmp < MAX) {
+    min[0] = a;
+    min[1] = b;
+    min[2] = c;
+    min[3] = (cet-a-b-c);
+    min[4] = tmp;
+    min[5] = duration;
+    MAX = tmp; 
+    //printf("%d\t|\t%d\t|\t%d\t|\t%d\t|\t%.6f\n", min[0], min[1], min[2], min[3], ((float) min[4])/(BASE * min[5]));
+  } 
 }
 
 int calculate(int cet, int duration) {
@@ -54,23 +62,24 @@ int calculate(int cet, int duration) {
     dure = duration - 1;
     n1=monthlyincome(BASE, BASE, BASE, a);
     if (((cet-a) < 5) || (dure <= 1)) {
-      evaluate(n1, 0, 0, monthlyincome(BASE, BASE, n1, cet-a), a, cet-a, 0, cet);
+      evaluate(BASE, BASE, n1, monthlyincome(BASE, BASE, n1, cet-a), a, cet-a, 0, cet, duration);
       continue;
     }
     for (b=5; b<=(cet-a) && dure>1; b++) {
       dure = duration -2;
       n2=monthlyincome(BASE, BASE, n1, b); 
       if (((cet-a-b) < 5) || (dure <= 1)) {
-        evaluate(n1, n2, 0, monthlyincome(BASE, n1, n2, cet-a-b), a, b, cet-a-b, cet);
+        evaluate(BASE, n1, n2, monthlyincome(BASE, n1, n2, cet-a-b), a, b, cet-a-b, cet, duration);
         continue;
       }
       for (c=5; c<=(cet-a-b) && dure>1; c++) {
         n3=monthlyincome(BASE, n1, n2, c); 
-        evaluate(n1, n2, n3, monthlyincome(n1, n2, n3, (cet-a-b-c)), a, b, c, cet);
+        evaluate(n1, n2, n3, monthlyincome(n1, n2, n3, (cet-a-b-c)), a, b, c, cet, duration);
       }
     } 
   }
   printf("%d\t|\t%d\t|\t%d\t|\t%d\t|\t%.6f\n", result[0], result[1], result[2], result[3], ((float) result[4])/(BASE * result[5]));
+  printf("%d\t|\t%d\t|\t%d\t|\t%d\t|\t%.6f\n", min[0], min[1], min[2], min[3], ((float) min[4])/(BASE * min[5]));
   return 0;
 }
 
