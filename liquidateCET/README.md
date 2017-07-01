@@ -2,7 +2,7 @@
 
 The rules to liquidate the days in CET bases on the average of your last 3 month salaries.
 
-This is a small program to help you to distribute the days of CET to past 3 month in order to have the best appreciate ratio.
+This program helps you to distribute the days of CET to past 3 month in order to have the best appreciate ratio.
 
  
 
@@ -16,7 +16,15 @@ you can run with gcc :
 gcc -o main ./main.c; ./main [Number of Days in CET]
 ```
 
-OR
+For example : 
+```
+$ gcc -o main ./main.c; ./main 26
+Starting to processing on 26 days
+1st Mon	|	2nd Mon	|	3rd Mon	|	4th Mon	|	Ratio
+7	|	6	|	6	|	7	|	1.842133
+```
+
+### OR
 
 ## Run with Docker without GCC
 
@@ -27,7 +35,7 @@ You have to install docker :
 * For Ubuntu  : [https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)
 * For CentOS  : [https://docs.docker.com/engine/installation/linux/docker-ce/centos/](https://docs.docker.com/engine/installation/linux/docker-ce/centos/)
 
-Run command with the number of days in your CET (Don't forget double quotes in the end) : 
+Run command with the number of days in your CET (__Don't forget double quotes in the end__) : 
 ```
 docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 bash -c "gcc -o main ./main.c; ./main [Number of Days in CET]"
 ```
