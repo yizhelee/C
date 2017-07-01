@@ -17,6 +17,7 @@ gcc -o main ./main.c; ./main Number_of_Days_in_CET Number_of_Month_as_Duration
 ```
 
 For example :
+
 __For a period of 4 month :__
 ```
 $ gcc -o main ./main.c; ./main 26 4
@@ -50,6 +51,7 @@ docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 bash -c "gcc 
 ```
 
 For example : 
+
 __For a period of 4 month :__
 ```
 $ docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 bash -c "gcc -o main ./main.c; ./main 26 4" 
